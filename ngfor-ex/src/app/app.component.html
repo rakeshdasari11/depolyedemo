@@ -1,0 +1,50 @@
+<!-- ng-for -->
+<div class='panel panel-primary'>  
+  <div class='panel-heading'>  
+      {{title}}  
+  </div>   
+  <div class='panel-body'>  
+      <div class='table-responsive'>  
+          <table class='table'>  
+              <thead>  
+                  <tr>  
+                      <th>Name</th>  
+                      <th>Position</th>  
+                      <th>Salary</th>  
+                      <th>Address</th>  
+                  </tr>  
+              </thead>  
+              <tbody>  
+                  <tr *ngFor="let employee of employees;">  
+                      <td>{{employee.name}}</td>  
+                      <td>{{employee.position}}</td>  
+                      <td>{{employee.salary}}</td>  
+                      <td>{{employee.address}}</td>  
+                  </tr>  
+              </tbody>  
+          </table>  
+      </div>  
+  </div>  
+</div>  
+<br>
+<hr>
+<!-- ngif -->
+<div class="container">
+<button  class="btn btn-primary" color="btn-blue" (click)="show = !show">{{show ? 'hide' : 'show'}}</button>  
+    show = {{show}}  
+    <br>  
+    <div *ngIf="show">text show</div> 
+</div>     
+<hr>
+<!-- ngswitch -->
+<div class="container">
+  <select class="form-control" [(ngModel)]="selectedValue">  
+    <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>  
+</select>  
+    <div class='row' [ngSwitch]="selectedValue">  
+    <div *ngSwitchCase="'One'">One is Pressed</div>  
+    <div *ngSwitchCase="'Two'">Two is Selected</div>  
+    <div *ngSwitchDefault>Default Option</div>  
+</div>  
+</div>
+<router-outlet></router-outlet>
